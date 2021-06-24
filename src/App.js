@@ -3,8 +3,8 @@ import './App.css';
 
 import Board from './components/Board';
 
-const PLAYER_1 = 'X';
-const PLAYER_2 = 'O';
+const PLAYER_1 = 'x';
+const PLAYER_2 = 'o';
 
 const generateSquares = () => {
   const squares = [];
@@ -116,16 +116,7 @@ const App = () => {
     setWinner(null);
   }
 
-  let winnerName = (winner == null ? `Current Player: ${player}` : `The winner is Player ${winner}`)
-  // const winnerName = () => {
-  //   if (winner == 'X') {
-  //     return `Player ${PLAYER_1}`
-  //   } else if (winner == 'O') {
-  //     return `Player ${PLAYER_2}`
-  //   } else if (!winner) {
-  //     return '';
-  //   }
-  // }
+  let winnerName = (winner == null ? `Current Player: ${player}` : `Winner is ${winner}`)
 
   return (
     <div className="App">
