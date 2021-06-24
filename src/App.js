@@ -45,7 +45,6 @@ const App = () => {
 
     newSquares.forEach((board) => {
       board.forEach((square) => {
-        // console.log('square '+ square)
         if (square.id === id) {
           square.value = player;
           if (player === PLAYER_1) {
@@ -58,10 +57,7 @@ const App = () => {
     });
 
     setSquares(newSquares);
-    // console.log('end test '+ squares)
-    console.log('*** '+ checkForWinner())
     setWinner(checkForWinner())
-    console.log('winner ' + winner)
   }
 
 
@@ -77,10 +73,6 @@ const App = () => {
     //    all three squares have the same value.
 
     for (let i = 0; i < 3; i++) {
-      // console.log(squares[i][0].value)
-      // console.log('index ' + i)
-      // console.log(squares[i][0].value !== '')
-      // console.log(squares[i][1].value !== '')
       if (squares[i][0].value !== '' && squares[i][1].value !== '') {
         if (squares[i][0].value === squares[i][1].value && squares[i][0].value === squares[i][2].value) {
             console.log('i 0 ' + squares[i][0].value)
