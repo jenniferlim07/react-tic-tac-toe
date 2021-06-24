@@ -61,6 +61,7 @@ const App = () => {
     // console.log('end test '+ squares)
     console.log('*** '+ checkForWinner())
     setWinner(checkForWinner())
+    console.log('winner ' + winner)
   }
 
 
@@ -76,28 +77,36 @@ const App = () => {
     //    all three squares have the same value.
 
     for (let i = 0; i < 3; i++) {
-      if (squares[i][0].value !== null) {
+      // console.log(squares[i][0].value)
+      // console.log('index ' + i)
+      // console.log(squares[i][0].value !== '')
+      // console.log(squares[i][1].value !== '')
+      if (squares[i][0].value !== '' && squares[i][1].value !== '') {
         if (squares[i][0].value === squares[i][1].value && squares[i][0].value === squares[i][2].value) {
             console.log('i 0 ' + squares[i][0].value)
             return squares[i][0].value;
         }
       }
-      if (squares[0][i].value === squares[1][i].value && squares[0][i].value === squares[2][i].value) {
-        console.log('0 i ' + squares[0][i].value)  
-        return squares[0][i].value;
-      } 
+      if (squares[0][i].value !== '' && squares[1][i].value !== '') {
+        if (squares[0][i].value === squares[1][i].value && squares[0][i].value === squares[2][i].value) {
+          console.log('0 i ' + squares[0][i].value)  
+          return squares[0][i].value;
+        } 
+      }
 
     }
 
-    if (squares[0][0].value === squares[1][1].value && squares[0][0].value === squares[2][2].value) {
-      console.log('0 0 ' + squares[0][0].value)
-      return squares[0][0].value;
-    } else if (squares[0][2].value === squares[1][1].value && squares[0][2].value === squares[2][0].value) {
-      console.log('0 2 ' + squares[0][2].value)
-      return squares[0][2].value;
+    if (squares[1][1].value !== '') {
+      if (squares[0][0].value === squares[1][1].value && squares[0][0].value === squares[2][2].value) {
+        console.log('0 0 ' + squares[0][0].value)
+        return squares[0][0].value;
+      } else if (squares[0][2].value === squares[1][1].value && squares[0][2].value === squares[2][0].value) {
+        console.log('0 2 ' + squares[0][2].value)
+        return squares[0][2].value;
+      }
     }
     console.log('null')
-    return 'null';
+    return null;
   }
 
   const resetGame = () => {
@@ -107,7 +116,7 @@ const App = () => {
     setWinner(null);
   }
 
-  let winnerName = (winner === null ? `Current Player: ${player}` : `The winner is Player ${winner}`)
+  let winnerName = (winner == null ? `Current Player: ${player}` : `The winner is Player ${winner}`)
   // const winnerName = () => {
   //   if (winner == 'X') {
   //     return `Player ${PLAYER_1}`
