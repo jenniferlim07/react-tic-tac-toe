@@ -10,6 +10,36 @@ const generateSquareComponents = (squares, onClickCallback) => {
   //  you need to return a 1D array
   //  of square components
 
+  // // const test = [].concat(...squares)
+  // // console.log('test' + test)
+  // console.log('square'+squares)
+  // const squareComponents = squares.reduce((square, val) => square.concat(val), [])
+  
+  // Flatten array out
+  const squareComponents = [].concat(...squares)
+
+  // console.log('SC'+squareComponents);
+  // // return squareComponents;
+  return squareComponents.map((square) => {
+    // console.log('square'+square)
+    return <Square 
+        value = {square.value}
+        onClickCallback = {onClickCallback}
+        id = {square.id}
+        key = {square.id}
+      />
+  })
+  // const squareComponentsUpdated = squareComponents.forEach((square) => {
+  //   console.log('square'+square);
+  //     return (
+  //     <Square 
+  //       value = {square.value}
+  //       onClickCallback = {onClickCallback}
+  //       id = {square.id}
+  //     />
+  //   )
+  // })
+
 }
 
 const Board = ({ squares, onClickCallback }) => {
