@@ -43,9 +43,10 @@ const App = () => {
     // ES6 way to clone an array
     const newSquares = [...squares];
 
+    // If is not empty then set the value to the current player
     newSquares.forEach((board) => {
       board.forEach((square) => {
-        if (square.id === id) {
+        if (square.id === id && square.value === '') {
           square.value = player;
           if (player === PLAYER_1) {
             setPlayer(PLAYER_2);
@@ -97,7 +98,7 @@ const App = () => {
         return squares[0][2].value;
       }
     }
-    console.log('null')
+
     return null;
   }
 
